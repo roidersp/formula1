@@ -18,11 +18,19 @@ function initAutocomplete() {
 	 	input_active = true;
 	 	console.log(input_active);
  	});
+ 	
+ 	$(window).on("click","#pac-input",function(){
+	 	
+ 	});
+ 	
 }
 
 
 
-$(document).on("click","#test",function(){
+$(document).on("click","#indepth_ver",function(){
+	
+	
+   $("#indepth_direccion").fadeIn();
 	var directionsService = new google.maps.DirectionsService();
    var directionsDisplay = new google.maps.DirectionsRenderer();
 
@@ -47,16 +55,17 @@ $(document).on("click","#test",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 
          // Display the distance:
-         document.getElementById('distance').innerHTML += 
-            response.routes[0].legs[0].distance.value + " meters";
+         //document.getElementById('distance').innerHTML += 
+          //  response.routes[0].legs[0].distance.value + " meters";
 
          // Display the duration:
-         document.getElementById('duration').innerHTML += 
-            response.routes[0].legs[0].duration.value + " seconds";
+         //document.getElementById('duration').innerHTML += 
+           // response.routes[0].legs[0].duration.value + " seconds";
 
          directionsDisplay.setDirections(response);
       }
    });
+   
 
 });
 

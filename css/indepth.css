@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Aldrich);
 
+.indepth_pages{
+	position: relative;
+}
+
 #indepth_portada{
 	background-image: url(../images/Fondo_portada.png);
 	width: 100%;
@@ -90,6 +94,44 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
+	background-color: red;
+	display: none;
+	z-index: 10;
+}
+
+#indepth_direction_cont{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+#indepth_street_view{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1;
+}
+
+#map_container{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.6);
+	display: table;
+}
+
+.map_cont{
+	display: table-cell;
+	vertical-align: middle;
 }
 
 /*#indepth_portada_img:before{
@@ -103,8 +145,17 @@
 }*/
 
 #map {
-        height: 100%;
+        width: 1000px;
+        height: 550px;
+        margin: auto;
       }
+      
+      
+#indepth_street_view{
+	width: 100%;
+	height: 100%;
+	
+}
 .controls {
   border: 1px solid transparent;
   border-radius: 0px;
@@ -166,8 +217,13 @@
 	display: none;
 }
 
-.pac-container:after{
-	background-image: none;
+.hdpi.pac-logo:after{
+		
+}
+
+.pac-logo:after{
+	height: 0;
+	display: none;
 }
 
 .pac-container {
