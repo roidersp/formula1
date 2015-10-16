@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Aldrich);
+
+#indepth_portada{
+	background-image: url(../images/Fondo_portada.png);
+	width: 100%;
+	height: 100%;
+	background-size: auto 100%;
+	display: table;
+	font-family: 'Aldrich', sans-serif;
+}
+
+#indepth_portada_cont{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: white;
+}
+
+#indepth_portada_img{
+	width: 100%;
+	margin: auto;
+	background-image: url(../images/Polvo.png), url(../images/Texto.png);
+	background-position:  center top, center top ;
+	background-size: 1400px auto, 1200px auto;
+	background-repeat: no-repeat, no-repeat;
+	padding-top: 50px;
+}
+
+#indepth_portada_img img{
+	width: 100%;
+	max-width: 790px;
+}
+
+.indepth_cover_descripcion{
+	width: 100%;
+	max-width: 700px;
+	font-size: 16px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.indepth_calle_text{
+	font-size: 16px;
+	color: #d81a3e;
+	display: inline-block;
+}
+
+#calle{
+	margin-top: 25px;
+}
+
+/*#indepth_portada_img:before{
+	content: "";
+	background-image: url(../images/Texto.png);
+	z-index: 1;
+	background-size: 1200px auto;
+	background-position: center top;
+	width: 100%;
+	
+}*/
+
+#map {
+        height: 100%;
+      }
+.controls {
+  margin-top: 10px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input {
+  background-color: transparent;
+  background-image: url(../images/Input.png);
+  background-size:auto 100%;
+  background-position: right top;
+  background-repeat: no-repeat;
+  height: 34px;
+  font-size: 16px;
+  color: white;
+  margin-left: 5px;
+  padding: 0 50px 0 10px;
+  text-overflow: ellipsis;
+  width: 332px;
+  text-transform: uppercase;
+  font-family: 'Aldrich', sans-serif;
+  border: none;
+  box-shadow:none;
+  display: inline-block;
+}
+
+#pac-input:focus {
+    border: none;
+}
+
+#indepth_ver{
+	width: 60px;
+	height: 34px;
+	background-image: url(../images/OK.png);
+	display: inline-block;
+	vertical-align: bottom;
+	margin-left: -12px;
+	margin-top: 4px;
+	text-transform: uppercase;
+	color: white;
+	line-height: 34px;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+.pac-item{
+	background: white;
+}
+
+.pac-container {
+  max-width: 320px;
+}
+
+#type-selector {
+  color: blue;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
