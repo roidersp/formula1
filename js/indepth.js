@@ -1,20 +1,29 @@
 var ventana_alto = window.innerHeight ? window.innerHeight : $(window).height();
 var ventana_ancho = $(window).width();
+var input_active = false;
 
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
 // pick list containing a mix of places and predicted search terms.
+var searchBox;
 
 function initAutocomplete() {
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
-  var searchBox = new google.maps.places.SearchBox(input);
+  searchBox = new google.maps.places.SearchBox(input);
     // [END region_getplaces]
+    
+    searchBox.addListener('places_changed', function() {
+	 	input_active = true;
+	 	console.log(input_active);
+ 	});
 }
 
+
+
 $(document).on("click","#test",function(){
-		var directionsService = new google.maps.DirectionsService();
+	var directionsService = new google.maps.DirectionsService();
    var directionsDisplay = new google.maps.DirectionsRenderer();
 
    var myOptions = {
