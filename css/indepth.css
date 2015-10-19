@@ -134,6 +134,10 @@
 	vertical-align: middle;
 }
 
+.gmnoprint, .gmnoscreen, .gmnoprint{
+	display: none;
+}
+
 /*#indepth_portada_img:before{
 	content: "";
 	background-image: url(../images/Texto.png);

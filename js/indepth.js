@@ -1,6 +1,7 @@
 var ventana_alto = window.innerHeight ? window.innerHeight : $(window).height();
 var ventana_ancho = $(window).width();
 var input_active = false;
+var start_location;
 
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
@@ -11,7 +12,7 @@ function initAutocomplete() {
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
-  searchBox = new google.maps.places.SearchBox(input);
+  searchBox = new google.maps.places.Autocomplete(input);
     // [END region_getplaces]
     
     searchBox.addListener('places_changed', function() {
@@ -28,30 +29,68 @@ function initAutocomplete() {
 
 
 $(document).on("click","#indepth_ver",function(){
+	place = searchBox.getPlace();
 	
+	console.log(place);
+	 	
+ 	//location = place.geometry.location;
+ 	
+ 	console.log("test"); 
+ 	
+ 	console.log( place.geometry)
+ 	
+ 	 lat = place.geometry.location.lat();
+ 	 lng = place.geometry.location.lng();
+ 	
+ 	
+ 	 var panorama = new google.maps.StreetViewPanorama(
+	      document.getElementById('indepth_street_view'), {
+	        position: {lat: lat, lng: lng},
+	        addressControlOptions: {
+	          position: google.maps.ControlPosition.BOTTOM_CENTER
+	        },
+	        linksControl: false,
+	        panControl: false,
+	        enableCloseButton: false,
+	        pov: {
+	          heading: -80,
+	          pitch: 0
+	        },
+			linksControl: false,
+	        panControl: false,
+	        enableCloseButton: false,
+	        disableDefaultUI: true
+	        
+	  });
+	
+	
+	console.log(panorama.getPhotographerPov())
 	
    $("#indepth_direccion").fadeIn();
 	var directionsService = new google.maps.DirectionsService();
    var directionsDisplay = new google.maps.DirectionsRenderer();
 
    var myOptions = {
-     zoom:7,
-     mapTypeId: google.maps.MapTypeId.ROADMAP
+     zoom:8,
+     mapTypeId: google.maps.MapTypeId.ROADMAP,
+     disableDefaultUI: true
    }
 
    var map = new google.maps.Map(document.getElementById("map"), myOptions);
    directionsDisplay.setMap(map);
    
-   console.log($("#pac-input").val());
+  
    
    var request = {
        origin: $("#pac-input").val(), 
        destination: 'Foro Sol',
-       travelMode: google.maps.DirectionsTravelMode.DRIVING
+       travelMode: google.maps.DirectionsTravelMode.DRIVING,
+       
    };
 
    directionsService.route(request, function(response, status) {
-	   console.log(response);
+	   
+	   
       if (status == google.maps.DirectionsStatus.OK) {
 
          // Display the distance:
@@ -61,6 +100,24 @@ $(document).on("click","#indepth_ver",function(){
          // Display the duration:
          //document.getElementById('duration').innerHTML += 
            // response.routes[0].legs[0].duration.value + " seconds";
+           start_location = response.routes[0].legs[0];
+           console.log(start_location);
+           
+         //  console.log(start_location);
+           
+          /* var panorama = new google.maps.StreetViewPanorama(
+		      document.getElementById('indepth_street_view'), {
+		        position: $("#pac-input").val(),
+		        addressControlOptions: {
+		          position: google.maps.ControlPosition.BOTTOM_CENTER
+		        },
+		        linksControl: false,
+		        panControl: false,
+		        enableCloseButton: false
+		  });
+		  */
+           
+           var st_view = $("#indepth_street_view");
 
          directionsDisplay.setDirections(response);
       }
@@ -72,7 +129,7 @@ $(document).on("click","#indepth_ver",function(){
 $(document).on("click","#streetview",function(){
 	var astorPlace = {lat: 40.729884, lng: -73.990988};
 	
-		panorama = map.getStreetView();
+	panorama = map.getStreetView();
 	  panorama.setPosition(astorPlace);
 	  panorama.setPov(/** @type {google.maps.StreetViewPov} */({
 	    heading: 265,
