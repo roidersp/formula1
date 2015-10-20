@@ -17,30 +17,28 @@ function initAutocomplete() {
     
     searchBox.addListener('places_changed', function() {
 	 	input_active = true;
-	 	console.log(input_active);
  	});
  	
  	$(window).on("click","#pac-input",function(){
 	 	
  	});
- 	
 }
-
-
 
 $(document).on("click","#indepth_ver",function(){
 	place = searchBox.getPlace();
-	
-	console.log(place);
-	 	
- 	//location = place.geometry.location;
- 	
- 	console.log("test"); 
- 	
- 	console.log( place.geometry)
+		 	
+ 	//location = place.geometry.location
  	
  	 lat = place.geometry.location.lat();
  	 lng = place.geometry.location.lng();
+ 	
+ 	//var heading = google.maps.geometry.spherical.computeHeading(data.location.latLng, marker_pano.getPosition());
+ 	
+ 	//console.log("heading: "+heading);
+ 	
+ 	
+ 	console.log(lat);
+ 	console.log(lng);
  	
  	
  	 var panorama = new google.maps.StreetViewPanorama(
@@ -53,7 +51,7 @@ $(document).on("click","#indepth_ver",function(){
 	        panControl: false,
 	        enableCloseButton: false,
 	        pov: {
-	          heading: -80,
+	          heading: -90,
 	          pitch: 0
 	        },
 			linksControl: false,
@@ -62,9 +60,14 @@ $(document).on("click","#indepth_ver",function(){
 	        disableDefaultUI: true
 	        
 	  });
+	  
+	  console.log(panorama.Links);
+	  
+	//  panorama.setPov({heading:-(panorama.links[0].heading),pitch:0})
+	  
 	
 	
-	console.log(panorama.getPhotographerPov())
+	
 	
    $("#indepth_direccion").fadeIn();
 	var directionsService = new google.maps.DirectionsService();
@@ -83,7 +86,7 @@ $(document).on("click","#indepth_ver",function(){
    
    var request = {
        origin: $("#pac-input").val(), 
-       destination: 'Foro Sol',
+       destination: new google.maps.LatLng(19.40319,-99.09094),
        travelMode: google.maps.DirectionsTravelMode.DRIVING,
        
    };
@@ -101,7 +104,6 @@ $(document).on("click","#indepth_ver",function(){
          //document.getElementById('duration').innerHTML += 
            // response.routes[0].legs[0].duration.value + " seconds";
            start_location = response.routes[0].legs[0];
-           console.log(start_location);
            
          //  console.log(start_location);
            
@@ -127,7 +129,7 @@ $(document).on("click","#indepth_ver",function(){
 });
 
 $(document).on("click","#streetview",function(){
-	var astorPlace = {lat: 40.729884, lng: -73.990988};
+	var astorPlace = {lat: 19.40319, lng: -99.09094};
 	
 	panorama = map.getStreetView();
 	  panorama.setPosition(astorPlace);
