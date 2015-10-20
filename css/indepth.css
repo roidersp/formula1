@@ -2,6 +2,7 @@
 
 .indepth_pages{
 	position: relative;
+	font-family: 'Aldrich', sans-serif;
 }
 
 #indepth_portada{
@@ -129,6 +130,10 @@
 	display: table;
 }
 
+.indepth_map_datos{
+	
+}
+
 .map_cont{
 	display: table-cell;
 	vertical-align: middle;
@@ -245,3 +250,112 @@
   font-size: 13px;
   font-weight: 300;
 }
+
+#indeptt_map_c{
+	width: 1000px;
+	margin: auto;
+}
+
+.indepth_map_datos{
+	color: white;
+	width: 100%;
+	height: 30px;
+	line-height: 35px;
+}
+
+.indepth_map_text{
+	float: left;
+	font-family: 'Aldrich', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+#indepth_map_flecha{
+	width: 30px;
+	height: 100%;
+	background-image: url(../images/Flecha.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+	float: left;
+	line-height: 30px;
+	margin: 0 10px;
+}
+
+#indepth_kilometros{
+	float: right;
+	font-family: 'Aldrich', sans-serif;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+#map{
+	width: 100%;
+	height: 500px;
+}
+
+#boton_empezar{
+	margin: 15px auto;
+	width: 132px;
+	height: 34px;
+	background-image: url(../images/Boton.png);
+	background-size: contain;
+	background-position: center center;
+	text-transform: uppercase;
+	color: white;
+	line-height: 37px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin-top: 30px;
+}
+
+#indepth_auto{
+	width: 100%;
+	height: 150px;
+	position: absolute;
+	bottom: 0;
+	z-index: 1000;
+	margin: auto;
+	
+	
+}
+
+#indepth_pov{
+	width: 31%;
+	height: 150px;
+	background-image: url(../images/POV.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	-webkit-transform: translate(0px,150px);
+	background-size: contain;
+	margin: auto;
+	
+	
+}
+
+.pov_active{
+    animation-name: pov_animate;
+    animation-duration: 3s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes pov_animate {
+    from {-webkit-transform: translate(0px,150px);}
+    to {-webkit-transform: translate(0px,0px);}
+}
+
+#indepth_velocimetro{
+	width: 250px;
+	height:240px;
+	background-image: url(../images/Velocimetro_grande.png);
+	background-position: center center;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	position: absolute;
+	z-index: 10001;
+	left: 2%;
+	bottom: 150px;
+	display: none;
+}
+

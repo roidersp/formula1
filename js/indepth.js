@@ -8,6 +8,13 @@ var start_location;
 // pick list containing a mix of places and predicted search terms.
 var searchBox;
 
+$(document).on("click","#boton_empezar",function(){
+	$("#indepth_pov").addClass("pov_active");	
+	$("#indepth_velocimetro").fadeIn();
+	
+	$("#map_container").fadeOut("slow");
+});
+
 function initAutocomplete() {
 
   // Create the search box and link it to the UI element.
