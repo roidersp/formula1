@@ -13,7 +13,10 @@ $(document).on("click","#boton_empezar",function(){
 	$("#indepth_velocimetro").fadeIn();
 	
 	$("#map_container").fadeOut("slow");
+	$("#boton_to_vel").fadeIn();
 });
+
+
 
 function initAutocomplete() {
 
@@ -32,6 +35,9 @@ function initAutocomplete() {
 }
 
 $(document).on("click","#indepth_ver",function(){
+	
+	
+	
 	place = searchBox.getPlace();
 		 	
  	//location = place.geometry.location
@@ -43,10 +49,7 @@ $(document).on("click","#indepth_ver",function(){
  	
  	//console.log("heading: "+heading);
  	
- 	
- 	console.log(lat);
- 	console.log(lng);
- 	
+
  	
  	 var panorama = new google.maps.StreetViewPanorama(
 	      document.getElementById('indepth_street_view'), {
@@ -58,20 +61,35 @@ $(document).on("click","#indepth_ver",function(){
 	        panControl: false,
 	        enableCloseButton: false,
 	        pov: {
-	          heading: -90,
+	          heading: -80,
 	          pitch: 0
 	        },
+	        zoom:0,
 			linksControl: false,
 	        panControl: false,
 	        enableCloseButton: false,
 	        disableDefaultUI: true
-	        
 	  });
 	  
-	  console.log(panorama.Links);
 	  
-	//  panorama.setPov({heading:-(panorama.links[0].heading),pitch:0})
-	  
+	 $(document).on("click","#boton_to_vel",function(){
+		
+		window.setTimeout(panorama.setZoom(1),1);
+		window.setTimeout(panorama.setZoom(2),1000);
+		window.setTimeout(panorama.setZoom(3),1500);
+		window.setTimeout(panorama.setZoom(7),1800);
+		//window.setTimeout(panorama.setZoom(5),1500);
+		
+		panorama.setPosition({lat: 19.40319, lng: -99.09094});
+		panorama.setZoom(0);
+		panorama.setPov({
+	          heading: -70,
+	          pitch: 0
+	        });
+			
+	
+
+	});	  
 	
 	
 	
@@ -102,7 +120,9 @@ $(document).on("click","#indepth_ver",function(){
 	   
 	   
       if (status == google.maps.DirectionsStatus.OK) {
-
+	  		metros = response.routes[0].legs[0].distance.value;
+	  		$("#indepth_map_inicio").html($("#pac-input").val());
+	  		$("#indepth_kilometros").html(metros/1000 + "km");
          // Display the distance:
          //document.getElementById('distance').innerHTML += 
           //  response.routes[0].legs[0].distance.value + " meters";
@@ -112,19 +132,7 @@ $(document).on("click","#indepth_ver",function(){
            // response.routes[0].legs[0].duration.value + " seconds";
            start_location = response.routes[0].legs[0];
            
-         //  console.log(start_location);
-           
-          /* var panorama = new google.maps.StreetViewPanorama(
-		      document.getElementById('indepth_street_view'), {
-		        position: $("#pac-input").val(),
-		        addressControlOptions: {
-		          position: google.maps.ControlPosition.BOTTOM_CENTER
-		        },
-		        linksControl: false,
-		        panControl: false,
-		        enableCloseButton: false
-		  });
-		  */
+    
            
            var st_view = $("#indepth_street_view");
 
