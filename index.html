@@ -28,7 +28,7 @@
 		</script>
   </head>
   <body>
-	<link type="text/css" rel="stylesheet" href="css/indepth.css?v=1.0.8"/>
+	<link type="text/css" rel="stylesheet" href="css/indepth.css?v=1.0.9"/>
 	
 	<div class="indepth_pages">
 		<div class="indepth_share">
@@ -67,6 +67,11 @@
 					
 					<div id="boton_to_vel">GO</div>
 					
+					<div id="indepth_video_a" onload="bgadj();">
+						<video id="video" autoplay="autoplay" preload="auto" loop="loop">
+							<source src="images/F1ANIMATION.webm" type="video/webm"></source>
+						</video>
+					</div>
 				</div>
 				<div id="map_container">
 					<div class="map_cont">
@@ -89,7 +94,7 @@
 	</div>
 
 
-	<script type="text/javascript" src="js/indepth.js?v=1.1.6"></script>
+	<script type="text/javascript" src="js/indepth.js?v=1.1.7"></script>
 	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAti0SrdwVSHUqFeWKgerpxOTgkdhLvMU&libraries=places&callback=initAutocomplete"
          async defer></script>
    

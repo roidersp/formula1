@@ -95,9 +95,9 @@
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	background-color: red;
 	display: none;
 	z-index: 10;
+	background-color: black;
 }
 
 #indepth_direction_cont{
@@ -381,6 +381,26 @@
 	display: none;
 }
 
+#indepth_video_a{
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+#indepth_video_a video{
+	  position: fixed;
+	 bottom: 0px;
+	 right: 0px;
+	 min-width: 100%;
+	 min-height: 100%;
+	 z-index: 0;
+	 overflow: hidden;
+}
+
 @media screen and (max-width: 1100px){
 	#indeptt_map_c{
 		width: 800px;
@@ -513,7 +533,9 @@
 	#indepth_street_view{
 		width: 100%;
 		height: 400px;
-		
+		top: inherit;
+	    top: 50%;
+		margin-top: -125px;
 	}
 	
 	#indepth_pov{
@@ -524,6 +546,12 @@
 	
 	#indepth_auto{
 		height: 50px;
+	}
+}
+
+@media screen and (max-width: 375px){
+	#pac-input{
+		width: 300px;
 	}
 }
 
@@ -546,4 +574,22 @@
 	.indepth_cover_descripcion{
 		font-size: 14px;
 	}
+}
+
+@media screen and (max-height: 650px){
+	#map{
+		height: 300px;
+	}
+	
+	#indepth_street_view{
+		height: 250px;
+		
+	}
+	
+	#indepth_velocimetro{
+		width: 100px;
+		height: 90px;
+		bottom: 10%;
+	}
+
 }

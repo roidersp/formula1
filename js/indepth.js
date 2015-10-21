@@ -74,19 +74,23 @@ $(document).on("click","#indepth_ver",function(){
 	  
 	 $(document).on("click","#boton_to_vel",function(){
 		
-		window.setTimeout(panorama.setZoom(1),1);
-		window.setTimeout(panorama.setZoom(2),1000);
-		window.setTimeout(panorama.setZoom(3),1500);
-		window.setTimeout(panorama.setZoom(7),1800);
-		//window.setTimeout(panorama.setZoom(5),1500);
+		$("#boton_to_vel").hide();
 		
-		panorama.setPosition({lat: 19.40319, lng: -99.09094});
-		panorama.setZoom(0);
-		panorama.setPov({
-	          heading: -70,
-	          pitch: 0
-	        });
-			
+		$("#indepth_video_a").fadeIn("fast");
+		
+		setTimeout(
+		  function() 
+		  {
+		    $("#indepth_video_a").fadeOut("fast");
+		  }, 5500);
+		
+		
+			panorama.setPosition({lat: 19.40319, lng: -99.09094});
+			panorama.setZoom(0);
+			panorama.setPov({
+		          heading: -70,
+		          pitch: 0
+		        });
 	
 
 	});	  
@@ -168,3 +172,45 @@ $(window).on("resize", function(){
 	height : ventana_alto-60 + "px"
 });
 });
+
+
+
+
+function bgadj(){
+         
+        var videoActualWidth = video.getBoundingClientRect().width;
+        var videoActualHeight = video.getBoundingClientRect().height;
+              
+        var ratio =  videoActualWidth / videoActualHeight;         
+         
+        if ((window.innerWidth / window.innerHeight) < ratio){
+          
+            video.setAttribute("style", "width: auto");
+            video.setAttribute("style", "height: 100%");
+              
+            <!-- si el vídeo es mas ancho que la ventana lo centro. Esta parte es opcional -->
+            if (videoActualWidth > window.innerWidth){
+              
+                var ajuste = (window.innerWidth - videoActualWidth)/2;                
+                
+                video.setAttribute("style", "left:"+ajuste+"px");          
+            }
+          
+        }
+        else{ 
+          
+            video.setAttribute("style", "width: 100%");
+            video.setAttribute("style", "height: auto");
+            video.setAttribute("style", "left: 0");
+  
+        }
+          
+    }
+ 
+    <!-- vuelvo a llamar a la función  bgadj() al redimensionar la ventana -->
+    window.onresize = function() {
+        bgadj();
+  
+    }
+    
+    bgadj();
