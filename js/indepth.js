@@ -81,7 +81,7 @@ $(document).on("click","#indepth_ver",function(){
 		setTimeout(
 		  function() 
 		  {
-		    $("#indepth_video_a").fadeOut("fast");
+		    $("#indepth_video_a").fadeOut("500");
 		  }, 5500);
 		
 		
