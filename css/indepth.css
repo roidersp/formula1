@@ -381,3 +381,169 @@
 	display: none;
 }
 
+@media screen and (max-width: 1100px){
+	#indeptt_map_c{
+		width: 800px;
+	}
+	
+	.indepth_map_text{
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 900px){
+	#indeptt_map_c{
+		width: 700px;
+	}
+	
+	.indepth_map_text{
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 800px){
+	#indeptt_map_c{
+		width: 600px;
+	}
+	
+	.indepth_map_text{
+		font-size: 10px;
+	}
+	#indepth_pov{
+		width: 40%;
+	}
+}
+
+
+@media screen and (max-width: 750px){
+	#indeptt_map_c{
+		width: 500px;
+	}
+	
+	.indepth_map_text{
+		font-size: 10px;
+	}
+	
+	.indepth_map_text{
+		float: none;
+		line-height: 10px;
+		display: table;
+	}
+	
+	#indepth_map_flecha{
+		float: none;
+		height: 10px;
+		margin: 5px 0;
+	}
+	
+	#indepth_kilometros{
+		display: table;
+		right: 0;
+    position: absolute;
+    top: 0;
+	}
+	
+	.indepth_map_datos{
+		display: table;
+		margin-bottom: 5px;
+		position: relative;
+	}
+	
+}
+
+@media screen and (max-height: 900px){
+	#indepth_portada_img img{
+		max-width: 600px;
+	}
+}
+
+@media screen and (max-height: 800px){
+	#indepth_portada_img img{
+		max-width: 400px;
+		width: 100%;
+	}
+	
+	#indepth_portada_img {
+	    background-size: 1000px auto, 1000px auto;
+	}
+	
+
+	
+	#map{
+		height: 400px;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#calle{
+		width: 96%;
+		margin: auto;
+		margin-top: 25px;
+		height: auto;
+	}
+	
+	#indepth_portada_img {
+	    background-size: 800px auto, 600px auto;
+	    padding-top: 10px;
+	}
+	
+	.indepth_cover_descripcion{
+		font-size: 13px;
+	}
+	
+	.indepth_calle_text{
+		height: auto;
+		margin-bottom: 5px;
+	}
+	
+	#indeptt_map_c{
+		width: 90%;
+		
+	}
+	
+	#indepth_kilometros{
+		position: inherit;
+	}
+	
+	#indepth_velocimetro{
+		width: 120px;
+		height: 130px;
+	}
+	
+	#indepth_street_view{
+		width: 100%;
+		height: 400px;
+		
+	}
+	
+	#indepth_pov{
+		width: 70%;
+		height: 50px;
+		
+	}
+	
+	#indepth_auto{
+		height: 50px;
+	}
+}
+
+@media screen and (max-height: 700px){
+	#indepth_portada_img img{
+		max-width: 300px;
+	}
+	
+	#indepth_portada_img {
+	    background-size: 800px auto, 800px auto;
+	    padding-top: 30px;
+	}
+	
+
+	
+	#map{
+		height: 400px;
+	}
+	
+	.indepth_cover_descripcion{
+		font-size: 14px;
+	}
+}

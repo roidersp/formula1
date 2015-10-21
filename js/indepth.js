@@ -156,7 +156,7 @@ $(document).on("click","#streetview",function(){
 
 $(".indepth_pages").css({
 	width : ventana_ancho + "px",
-	height : ventana_alto + "px"
+	height : ventana_alto-60 + "px"
 });
 
 $(window).on("resize", function(){
@@ -165,6 +165,6 @@ $(window).on("resize", function(){
 	
 	$(".indepth_pages").css({
 	width : ventana_ancho + "px",
-	height : ventana_alto + "px"
+	height : ventana_alto-60 + "px"
 });
 });
