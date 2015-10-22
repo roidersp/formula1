@@ -2,100 +2,101 @@ var ventana_alto = window.innerHeight ? window.innerHeight : $(window).height();
 var ventana_ancho = $(window).width();
 var input_active = false;
 var start_location;
-
-// This example adds a search box to a map, using the Google Place Autocomplete
-// feature. People can enter geographical searches. The search box will return a
-// pick list containing a mix of places and predicted search terms.
 var searchBox;
+
+
+$(document).on("click", "#indepth_share_twiiter", function(){
+	var text = encodeURIComponent();
+	
+	var url = encodeURIComponent("http://juanfutbol.com/indepth/");
+	window.open("https://twitter.com/share?text="+text+"&url="+url,"","width=500, height=300");
+	}
+);
+
+$(document).on("click", "#indepth_share_fb", function(){
+	var text="";
+	var url = encodeURIComponent("http://juanfutbol.com/indepth/text="+text);
+	window.open("https://www.facebook.com/sharer/sharer.php?u="+url,"","width=500, height=300");
+
+});
 
 $(document).on("click","#boton_empezar",function(){
 	$("#indepth_pov").addClass("pov_active");	
 	$("#indepth_velocimetro").fadeIn();
-	
 	$("#map_container").fadeOut("slow");
 	$("#boton_to_vel").fadeIn();
 });
 
-
-
 function initAutocomplete() {
 
-  // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
   searchBox = new google.maps.places.Autocomplete(input);
-    // [END region_getplaces]
     
     searchBox.addListener('places_changed', function() {
 	 	input_active = true;
+	 	console.log("test");
  	});
  	
- 	$(window).on("click","#pac-input",function(){
-	 	
- 	});
 }
 
 $(document).on("click","#indepth_ver",function(){
-	
-	
-	
+
 	place = searchBox.getPlace();
-		 	
- 	//location = place.geometry.location
- 	
- 	 lat = place.geometry.location.lat();
- 	 lng = place.geometry.location.lng();
- 	
- 	//var heading = google.maps.geometry.spherical.computeHeading(data.location.latLng, marker_pano.getPosition());
- 	
- 	//console.log("heading: "+heading);
- 	
-
- 	
- 	 var panorama = new google.maps.StreetViewPanorama(
-	      document.getElementById('indepth_street_view'), {
-	        position: {lat: lat, lng: lng},
-	        addressControlOptions: {
-	          position: google.maps.ControlPosition.BOTTOM_CENTER
-	        },
-	        linksControl: false,
-	        panControl: false,
-	        enableCloseButton: false,
-	        pov: {
-	          heading: -80,
-	          pitch: 0
-	        },
-	        zoom:0,
-			linksControl: false,
-	        panControl: false,
-	        enableCloseButton: false,
-	        disableDefaultUI: true
-	  });
-	  
-	  
-	 $(document).on("click","#boton_to_vel",function(){
 		
-		$("#boton_to_vel").hide();
-		
-		$("#indepth_video_a").fadeIn("fast");
-		
-		setTimeout(
-		  function() 
-		  {
-		    $("#indepth_video_a").fadeOut("500");
-		  }, 5500);
-		
-		
-			panorama.setPosition({lat: 19.40319, lng: -99.09094});
-			panorama.setZoom(0);
-			panorama.setPov({
-		          heading: -70,
+	if(place != undefined){
+		lat = place.geometry.location.lat();
+	 	 lng = place.geometry.location.lng();
+	 	
+	 	 var panorama = new google.maps.StreetViewPanorama(
+		      document.getElementById('indepth_street_view'), {
+		        position: {lat: lat, lng: lng},
+		        addressControlOptions: {
+		          position: google.maps.ControlPosition.BOTTOM_CENTER
+		        },
+		        linksControl: false,
+		        panControl: false,
+		        enableCloseButton: false,
+		        pov: {
+		          heading: -80,
 		          pitch: 0
-		        });
+		        },
+		        zoom:0,
+				linksControl: false,
+		        panControl: false,
+		        enableCloseButton: false,
+		        disableDefaultUI: true
+		  });
+		  
+		 $(document).on("click","#boton_to_vel",function(){
+		
+			$("#boton_to_vel").hide();
+			
+			$("#indepth_video_a").fadeIn("fast");
+			
+			setTimeout(
+			  function() 
+			  {
+			    $("#indepth_video_a").fadeOut("500");
+			    $("#indepth_resultados").show();
+			    $("#boton_de_nuevo").show();
+			  }, 3500);
+			
+			
+				panorama.setPosition({lat: 19.40319, lng: -99.09094});
+				panorama.setZoom(0);
+				panorama.setPov({
+			          heading: -70,
+			          pitch: 0
+			        });
+		
 	
+		});
+		
+		
+		$(document).on("click","#boton_de_nuevo",function(){
+		avascript:location.reload();
+	});
 
-	});	  
-	
-	
 	
 	
    $("#indepth_direccion").fadeIn();
@@ -127,13 +128,7 @@ $(document).on("click","#indepth_ver",function(){
 	  		metros = response.routes[0].legs[0].distance.value;
 	  		$("#indepth_map_inicio").html($("#pac-input").val());
 	  		$("#indepth_kilometros").html(metros/1000 + "km");
-         // Display the distance:
-         //document.getElementById('distance').innerHTML += 
-          //  response.routes[0].legs[0].distance.value + " meters";
-
-         // Display the duration:
-         //document.getElementById('duration').innerHTML += 
-           // response.routes[0].legs[0].duration.value + " seconds";
+  
            start_location = response.routes[0].legs[0];
            
     
@@ -143,7 +138,10 @@ $(document).on("click","#indepth_ver",function(){
          directionsDisplay.setDirections(response);
       }
    });
-   
+		
+		
+	}
+
 
 });
 

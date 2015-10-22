@@ -1,5 +1,74 @@
 @import url(https://fonts.googleapis.com/css?family=Aldrich);
 
+.indepth_share_card_boton{
+	  margin: 10px auto;
+	  display: table;
+	  margin-top: 5px;
+
+}
+.indepth_share{
+		display: none;
+		position: fixed;
+		right: 10px;
+		bottom: 10px;
+		z-index: 200;
+		
+	}
+	
+	.indepth_share_item{
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.2);
+		float: left;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: auto 15px ;
+		margin-left: 7px;
+		cursor: pointer;
+	}
+	
+	.indepth_share_item.facebook{
+		background-image: url(../images/boton_facebook.png);
+		
+	}
+	#indepth_share_card .indepth_share_item.facebook{
+		background-color: #3660A4;
+	}
+	
+	.indepth_share_item.facebook:hover{
+		background-color: #3660A4;
+	}
+	
+	#indepth_share_card .indepth_share_item.twitter{
+		background-color: #02B2F7;
+	}
+	
+	.indepth_share_item.twitter{
+		background-image: url(../images/boton_twitter.png);
+		
+	}
+	
+	.indepth_share_item.twitter:hover{
+		background-color: #02B2F7;
+	}
+	
+	
+	.indepth_share_item.whatsapp{
+		background-image: url(../images/boton_whatsapp.png);
+		display: none;
+	}
+	
+	.indepth_share_item.whatsapp:hover{
+		background-color: #85D86D;
+	}
+	
+	.indepth_comprate{
+		margin: 10px auto;
+		text-align: center;
+	}
+
+
 .indepth_pages{
 	position: relative;
 	font-family: 'Aldrich', sans-serif;
@@ -331,6 +400,29 @@
 	display: none;
 }
 
+#boton_de_nuevo{
+	margin: 15px auto;
+	width: 132px;
+	height: 34px;
+	background-image: url(../images/Boton.png);
+	background-size: contain;
+	background-position: center center;
+	text-transform: uppercase;
+	color: white;
+	line-height: 37px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin-top: 30px;
+	position: absolute;
+	top: 3%;
+	left: 50%;
+	-webkit-transform: translate(-50%,0);
+	z-index: 100001;
+	display: none;
+	font-size: 10px;
+}
+
 #indepth_auto{
 	width: 100%;
 	height: 150px;
@@ -338,21 +430,17 @@
 	bottom: 0;
 	z-index: 1000;
 	margin: auto;
-	
-	
 }
 
 #indepth_pov{
-	width: 31%;
+	width: 450px;
 	height: 150px;
 	background-image: url(../images/POV.png);
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	-webkit-transform: translate(0px,150px);
 	background-size: contain;
-	margin: auto;
-	
-	
+	margin: auto;	
 }
 
 .pov_active{
@@ -401,6 +489,27 @@
 	 overflow: hidden;
 }
 
+#indepth_resultados{
+	background-color: rgba(0, 0, 0, 0.9);
+	padding: 10px 20px;
+	color: white;
+	font-size: 14px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	z-index: 10;
+	display: none;
+}
+
+#res_tiempo{
+	margin-top: 3px;
+	margin-bottom: 15px;
+}
+
+#indepth_resultados .indepth_share_card_boton{
+	margin: auto;
+}
+
 @media screen and (max-width: 1100px){
 	#indeptt_map_c{
 		width: 800px;
@@ -430,7 +539,7 @@
 		font-size: 10px;
 	}
 	#indepth_pov{
-		width: 40%;
+		width: 45%;
 	}
 }
 
@@ -471,15 +580,32 @@
 	
 }
 
-@media screen and (max-height: 900px){
+@media screen and (max-height: 1100px){
 	#indepth_portada_img img{
 		max-width: 600px;
 	}
 }
 
-@media screen and (max-height: 800px){
+@media screen and (max-height: 1000px){
 	#indepth_portada_img img{
-		max-width: 400px;
+		max-width: 500px;
+		width: 100%;
+	}
+	
+	#indepth_portada_img {
+	    background-size: 1000px auto, 1000px auto;
+	}
+	
+
+	
+	#map{
+		height: 400px;
+	}
+}
+
+@media screen and (max-height: 900px){
+	#indepth_portada_img img{
+		max-width: 450px;
 		width: 100%;
 	}
 	
@@ -546,6 +672,15 @@
 	
 	#indepth_auto{
 		height: 50px;
+	}
+	
+	#indepth_video_a video {
+	    bottom: 50%;
+	    transform: translateY(50%);
+	    -moz-transform: translateY(50%);
+	    -webkit-transform: translateY(50%);
+	    -o-transform: translateY(50%);
+	   
 	}
 }
 
