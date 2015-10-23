@@ -66,6 +66,7 @@
 	.indepth_comprate{
 		margin: 10px auto;
 		text-align: center;
+		text-transform: uppercase;
 	}
 
 
@@ -339,7 +340,7 @@
 	text-transform: uppercase;
 }
 
-#indepth_map_flecha{
+.indepth_map_flecha{
 	width: 30px;
 	height: 100%;
 	background-image: url(../images/Flecha.png);
@@ -348,6 +349,7 @@
 	float: left;
 	line-height: 30px;
 	margin: 0 10px;
+	height: 30px;
 }
 
 #indepth_kilometros{
@@ -391,7 +393,33 @@
 	cursor: pointer;
 	background-repeat: no-repeat;
 	text-align: center;
-	margin-top: 30px;
+	
+	
+}
+
+.indepth_share_item2{
+	margin: 15px 5px;
+	width: 132px;
+	height: 34px;
+	background-image: url(../images/Boton.png);
+	background-size: contain;
+	background-position: center center;
+	text-transform: uppercase;
+	color: white;
+	line-height: 37px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	text-align: center;
+	display: inline-block;
+}
+
+.indepth_share_card_boton{
+	width: auto;
+	margin: 20px auto;
+	text-align: center;
+}
+
+#cont_to_vel{
 	position: absolute;
 	top: 3%;
 	left: 50%;
@@ -399,6 +427,15 @@
 	z-index: 100001;
 	display: none;
 }
+
+#text_to_vel{
+	max-width: 400px;
+	color: white;
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 10px 5px;
+	text-align: center;
+}
+
 
 #boton_de_nuevo{
 	margin: 15px auto;
@@ -490,15 +527,19 @@
 }
 
 #indepth_resultados{
-	background-color: rgba(0, 0, 0, 0.9);
-	padding: 10px 20px;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 50px 50px;
 	color: white;
 	font-size: 14px;
 	position: absolute;
-	right: 10px;
-	top: 10px;
+	left: 50%;
+	top: 50%;
 	z-index: 10;
 	display: none;
+	max-width: 1024px;
+	-webkit-transform: translate(-50%,-50%);
+	width: 96%;
+	
 }
 
 #res_tiempo{
@@ -508,6 +549,53 @@
 
 #indepth_resultados .indepth_share_card_boton{
 	margin: auto;
+}
+
+#indepth_res_cont_des{
+	height: 30px;
+	width: auto;
+	margin: auto;
+	text-align: center;
+	line-height: 35px;
+	display: table;
+	max-width: 90%;
+	margin: auto;
+	
+}
+
+#res_datos_cont{
+	text-align: center;
+}
+
+#res_distancia, #res_tiempo, #res_tiempo_normal{
+	width: 160px;
+	font-size: 16px;
+	color: #b31432;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 45px 0;
+	position: relative;
+}
+
+#res_distancia:after, #res_tiempo:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 45px;
+	height: 100%;
+	background-image: url(../images/Division.png);
+}
+
+#res_distancia, #res_tiempo{
+	padding-right: 45px;
+}
+
+#res_distancia span, #res_tiempo span, #res_tiempo_normal span{
+	color: white;
+	font-size: 22px;
+	margin-top: 5px;
+	line-height: 40px;
 }
 
 @media screen and (max-width: 1100px){
@@ -559,10 +647,11 @@
 		display: table;
 	}
 	
-	#indepth_map_flecha{
+	.indepth_map_flecha{
 		float: none;
 		height: 10px;
 		margin: 5px 0;
+		
 	}
 	
 	#indepth_kilometros{

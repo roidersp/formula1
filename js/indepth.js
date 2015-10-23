@@ -3,6 +3,7 @@ var ventana_ancho = $(window).width();
 var input_active = false;
 var start_location;
 var searchBox;
+var segundos;
 
 
 $(document).on("click", "#indepth_share_twiiter", function(){
@@ -24,7 +25,7 @@ $(document).on("click","#boton_empezar",function(){
 	$("#indepth_pov").addClass("pov_active");	
 	$("#indepth_velocimetro").fadeIn();
 	$("#map_container").fadeOut("slow");
-	$("#boton_to_vel").fadeIn();
+	$("#cont_to_vel").fadeIn();
 });
 
 function initAutocomplete() {
@@ -69,7 +70,7 @@ $(document).on("click","#indepth_ver",function(){
 		  
 		 $(document).on("click","#boton_to_vel",function(){
 		
-			$("#boton_to_vel").hide();
+			$("#cont_to_vel").hide();
 			
 			$("#indepth_video_a").fadeIn("fast");
 			
@@ -123,15 +124,20 @@ $(document).on("click","#indepth_ver",function(){
 
    directionsService.route(request, function(response, status) {
 	   
-	   
+	   console.log(response.routes[0].legs[0]);
       if (status == google.maps.DirectionsStatus.OK) {
-	  		metros = response.routes[0].legs[0].distance.value;
-	  		$("#indepth_map_inicio").html($("#pac-input").val());
-	  		$("#indepth_kilometros").html(metros/1000 + "km");
-  
+	  		metros = response.routes[0].legs[0].distance.value; 
+	  		segundos = response.routes[0].legs[0].duration.value;
+	  		
+	  		
+	  		
+	  		$(".indepth_map_inicio").html($("#pac-input").val());
+	  		$("#indepth_kilometros").html(Math.round10(metros/1000, -2) + " km");
+	  		$("#res_distancia span").html(Math.round10(metros/1000, -2) + " km");
+	  		$("#res_tiempo_normal span").html(Math.round10(segundos,0) + " seg");
+	  		$("#res_tiempo span").html(Math.round10(metros/83.3333,0) + " seg");
            start_location = response.routes[0].legs[0];
            
-    
            
            var st_view = $("#indepth_street_view");
 
@@ -212,3 +218,52 @@ function bgadj(){
     }
     
     bgadj();
+    
+    // Closure
+(function() {
+  /**
+   * Decimal adjustment of a number.
+   *
+   * @param {String}  type  The type of adjustment.
+   * @param {Number}  value The number.
+   * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
+   * @returns {Number} The adjusted value.
+   */
+  function decimalAdjust(type, value, exp) {
+    // If the exp is undefined or zero...
+    if (typeof exp === 'undefined' || +exp === 0) {
+      return Math[type](value);
+    }
+    value = +value;
+    exp = +exp;
+    // If the value is not a number or the exp is not an integer...
+    if (isNaN(value) || !(typeof exp === 'number' && exp % 1 === 0)) {
+      return NaN;
+    }
+    // Shift
+    value = value.toString().split('e');
+    value = Math[type](+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    // Shift back
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+  }
+
+  // Decimal round
+  if (!Math.round10) {
+    Math.round10 = function(value, exp) {
+      return decimalAdjust('round', value, exp);
+    };
+  }
+  // Decimal floor
+  if (!Math.floor10) {
+    Math.floor10 = function(value, exp) {
+      return decimalAdjust('floor', value, exp);
+    };
+  }
+  // Decimal ceil
+  if (!Math.ceil10) {
+    Math.ceil10 = function(value, exp) {
+      return decimalAdjust('ceil', value, exp);
+    };
+  }
+})();

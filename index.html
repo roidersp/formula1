@@ -28,7 +28,7 @@
 		</script>
   </head>
   <body>
-	<link type="text/css" rel="stylesheet" href="css/indepth.css?v=1.0.10"/>
+	<link type="text/css" rel="stylesheet" href="css/indepth.css?v=1.0.11"/>
 	
 	<div class="indepth_pages">
 		<div class="indepth_share">
@@ -42,7 +42,7 @@
 					<img src="images/Carro.png" alt="Carro">
 				</div>
 				<div class="indepth_cover_descripcion">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					¡Viaja en un Fórmula 1! Elige tu punto de salida y llega a máxima velocidad al Autódromo Hermanos Rodríguez. 
 				</div>
 				<div id="calle">
 					<div class="indepth_calle_text">CALLE:</div>
@@ -66,20 +66,32 @@
 					<div id="indepth_velocimetro"></div> 
 					
 					<div id="indepth_resultados">
-						<div id="res_distancia">Distancia: <span></span> KM</div>
-						<div id="res_tiempo">Tiempo: <span></span> s</div>
+						
+						<div id="indepth_res_cont_des">
+							<div class="indepth_map_inicio indepth_map_text"></div>
+							<div class="indepth_map_flecha"></div>
+							<div class="indepth_map_fin indepth_map_text">Autodromo hnos. Rodriguez</div>
+						</div>
+						
+						<div id="res_datos_cont">
+							<div id="res_distancia">Distancia <br><span></span></div>
+							<div id="res_tiempo">Tiempo f1 <br> <span></span></div>
+							<div id="res_tiempo_normal">Tiempo normal  <br> <span></span> </div>
+						</div>
 						
 						<div class="indepth_comprate">Comparte tu resultado</div>
 						<div class="indepth_share_card_boton">
-								<div class="indepth_share_item facebook" id="indepth_share_fb"></div>
-								<div class="indepth_share_item twitter" id="indepth_share_twiiter"></div>
+								<div class="indepth_share_item2 facebook" id="indepth_share_fb">Twitter</div>
+								<div class="indepth_share_item2 twitter" id="indepth_share_twiiter">Facebook</div>
 						</div>
 						
 					</div>
 					
 					
-					
-					<div id="boton_to_vel">GO</div>
+					<div id="cont_to_vel">
+						<div id="boton_to_vel">Iniciar</div>
+						<div id="text_to_vel">¡Evita accidentes! Acomoda tu bólido y alístate para el viaje. </div>
+					</div>
 					<div id="boton_de_nuevo">Empezar de nuevo</div>
 					
 					<div id="indepth_video_a" onload="bgadj();">
@@ -92,9 +104,9 @@
 					<div class="map_cont">
 						<div id="indeptt_map_c">
 							<div class="indepth_map_datos">
-								<div id="indepth_map_inicio" class="indepth_map_text"></div>
-								<div id="indepth_map_flecha"></div>
-								<div id="indepth_map_fin" class="indepth_map_text">Autodromo hnos. Rodriguez</div>
+								<div class="indepth_map_inicio indepth_map_text" ></div>
+								<div class="indepth_map_flecha"></div>
+								<div class="indepth_map_fin indepth_map_text">Autodromo hnos. Rodriguez</div>
 								<div id="indepth_kilometros">15 km</div>
 							</div>
 							<div id="map" ></div>
@@ -109,7 +121,7 @@
 	</div>
 
 
-	<script type="text/javascript" src="js/indepth.js?v=1.1.8"></script>
+	<script type="text/javascript" src="js/indepth.js?v=1.1.9"></script>
 	    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBAti0SrdwVSHUqFeWKgerpxOTgkdhLvMU&libraries=places&callback=initAutocomplete"
          async defer></script>
    
