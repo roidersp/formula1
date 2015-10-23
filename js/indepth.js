@@ -7,15 +7,15 @@ var segundos;
 
 
 $(document).on("click", "#indepth_share_twiiter", function(){
-	var text = encodeURIComponent();
+	var text = encodeURIComponent("Hice "+segundos+" para llegar al Autódromo Hermanos Rodríguez en un Fórmula ¿Y tú?");
 	
 	var url = encodeURIComponent("http://juanfutbol.com/indepth/");
-	window.open("https://twitter.com/share?text="+text+"&url="+url,"","width=500, height=300");
+	window.open("https://twitter.com/share?via=juanfutbol&text="+text+"&url="+url,"","width=500, height=300");
 	}
 );
 
 $(document).on("click", "#indepth_share_fb", function(){
-	var text="";
+	var text="Viaje en un Fórmula 1 a más de 300 kilómetros por hora para llegar al Autódromo Hermanos Rodríguez. ¡Atrévete a tomar el volante!";
 	var url = encodeURIComponent("http://juanfutbol.com/indepth/text="+text);
 	window.open("https://www.facebook.com/sharer/sharer.php?u="+url,"","width=500, height=300");
 
