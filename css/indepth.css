@@ -588,8 +588,8 @@
 }
 
 @keyframes pov_animate {
-    from {-webkit-transform: translate(0px,150px);}
-    to {-webkit-transform: translate(0px,0px);}
+    from {-ms-transform: translate(0px,150px);-webkit-transform: translate(0px,150px);}
+    to {-ms-transform: translate(0px,0px);-webkit-transform: translate(0px,0px);}
 }
 
 #indepth_velocimetro{
