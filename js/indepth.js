@@ -81,6 +81,7 @@ $(document).on("click","#indepth_ver",function(){
 			$("#cont_to_vel").hide();
 			
 			$("#indepth_video_a").fadeIn("fast");
+			myVideo.volume = 0.5;
 			myVideo.play();
 			
 			num_vel = 76;
