@@ -65,6 +65,13 @@
 					
 					<div id="indepth_velocimetro"></div> 
 					
+					<div id="indepth_semaforo">
+						<div class="indepth_semaforo_item" id="indepth_semafoto1"></div>
+						<div class="indepth_semaforo_item" id="indepth_semafoto2"></div>
+						<div class="indepth_semaforo_item" id="indepth_semafoto3"></div>
+						<div class="indepth_semaforo_item green" id="indepth_semafoto4"></div>
+					</div>
+					
 					<div id="indepth_resultados">
 						
 						<div id="indepth_res_cont_des">
@@ -74,9 +81,15 @@
 						</div>
 						
 						<div id="res_datos_cont">
-							<div id="res_distancia">Distancia <br><span></span></div>
-							<div id="res_tiempo">Tiempo f1 <br> <span></span></div>
-							<div id="res_tiempo_normal">Tiempo normal  <br> <span></span> </div>
+							<div id="res_distancia"><div></div></div>
+							<div id="res_tiempo"> <div></div></div>
+							<div id="res_velocidad"> <div>360 KM/H</div> </div>
+						</div>
+						<div id="res_datos_on">
+							<div id="res_tiempo_carro"> 40 MINS </div>
+							<div id="res_tiempo_bus">  </div>
+							<div id="res_tiempo_bici">  </div>
+							<div id="res_tiempo_walk">  </div>
 						</div>
 						
 						<div class="indepth_comprate">Comparte tu resultado</div>
@@ -84,23 +97,24 @@
 								<div class="indepth_share_item2 facebook" id="indepth_share_fb">Twitter</div>
 								<div class="indepth_share_item2 twitter" id="indepth_share_twiiter">Facebook</div>
 						</div>
-						
+						<div id="boton_de_nuevo">Empezar de nuevo</div>
 					</div>
 					
-					
 					<div id="cont_to_vel">
-						<div id="boton_to_vel">Iniciar</div>
-						<div id="text_to_vel">¡Evita accidentes! Acomoda tu bólido y alístate para el viaje. </div>
+						
+						<div id="text_to_vel">
+							¡Evita accidentes! Acomoda tu bólido<br> <span>La ciudad esta llena de microbuseros</span> </div>
+							<div id="boton_to_vel">Iniciar viaje</div>
 					</div>
 					
 					
 					<div id="indepth_video_a" onload="bgadj();">
-						<video id="video" autoplay="autoplay" preload="auto" loop="loop">
-							<source src="images/F1ANIMATION.webm" type="video/webm"></source>
+						<video id="video"  preload="auto" loop="loop">
+							<source src="images/F1ANIMATION.mp4" type="video/mp4"></source>
 						</video>
 					</div>
 				</div>
-				<div id="boton_de_nuevo">Empezar de nuevo</div>
+				
 				<div id="map_container">
 					<div class="map_cont">
 						<div id="indeptt_map_c">
@@ -116,6 +130,37 @@
 					</div> 
 				</div>
 			</div>
+		</div>
+		
+		<div id="preload">
+			<img src="images/velocimetro/velocimetro_00096.png" alt="velocimetro_00096" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00081.png" alt="velocimetro_00081" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00092.png" alt="velocimetro_00092" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00086.png" alt="velocimetro_00086" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00097.png" alt="velocimetro_00097" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00082.png" alt="velocimetro_00082" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00093.png" alt="velocimetro_00093" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00076.png" alt="velocimetro_00076" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00087.png" alt="velocimetro_00087" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00098.png" alt="velocimetro_00098" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00083.png" alt="velocimetro_00083" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00094.png" alt="velocimetro_00094" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00077.png" alt="velocimetro_00077" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00088.png" alt="velocimetro_00088" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00099.png" alt="velocimetro_00099" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00090.png" alt="velocimetro_00090" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00084.png" alt="velocimetro_00084" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00078.png" alt="velocimetro_00078" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00095.png" alt="velocimetro_00095" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00089.png" alt="velocimetro_00089" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00080.png" alt="velocimetro_00080" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00091.png" alt="velocimetro_00091" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00085.png" alt="velocimetro_00085" width="200" height="200">
+			<img src="images/velocimetro/velocimetro_00079.png" alt="velocimetro_00079" width="200" height="200">
+			<img src="images/iconosybotonf1/PNG_Semaforo1_ON.png" alt="PNG_Semaforo1_ON" width="56" height="61">
+<img src="images/iconosybotonf1/PNG_Semaforo2.png" alt="PNG_Semaforo2" width="56" height="61">
+<img src="images/iconosybotonf1/PNG_Semaforo2_ON.png" alt="PNG_Semaforo2_ON" width="56" height="61">
+<img src="images/iconosybotonf1/PNG_Semaforo1.png" alt="PNG_Semaforo1" width="56" height="61">
 		</div>
 		
 		

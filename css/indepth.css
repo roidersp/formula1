@@ -1,5 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Aldrich);
 
+
+.gm-style > div:nth-child(9), #nav-bar-stats{
+ display:none;
+}
+
 .indepth_share_card_boton{
 	  margin: 10px auto;
 	  display: table;
@@ -95,7 +100,7 @@
 	width: 100%;
 	margin: auto;
 	background-image: url(../images/Polvo.png), url(../images/Texto.png);
-	background-position:  center top, center top ;
+	background-position:  center top -20px, center top 10px;
 	background-size: 1400px auto, 1200px auto;
 	background-repeat: no-repeat, no-repeat;
 	padding-top: 50px;
@@ -380,8 +385,77 @@
 	margin-top: 30px;
 }
 
+#indepth_semaforo{
+	max-width: 300px;
+	width: 90%;
+	margin: auto;
+	position: absolute;
+	top: 15%;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0px);
+	transform: translate(-50%, 0px);
+	height: 70px;
+	z-index: 100000001;
+	 display: none;
+}
+
+.indepth_semaforo_item{
+	width:55px;
+	margin:0 10px;
+	float: left;
+	height: 100%;
+	background-image: url(../images/iconosybotonf1/PNG_Semaforo1.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: contain;
+	animation-name: semaforo;
+    -webkit-animation-fill-mode: forwards;
+   
+}
+
+.indepth_semaforo_item.green{
+	background-image: url(../images/iconosybotonf1/PNG_Semaforo2.png);
+}
+
+#indepth_semafoto1{
+	animation-duration: 0s;
+	animation-delay: .4s;
+}
+
+#indepth_semafoto2{
+	animation-duration: 0s;
+	animation-delay: .8s;
+}
+
+#indepth_semafoto3{
+	animation-duration: 0s;
+	animation-delay: 1.2s;
+}
+
+#indepth_semafoto4{
+	animation-name: semaforo2;
+	animation-duration: 0s;
+	animation-delay: 2s;
+}
+
+
+@keyframes semaforo{
+
+	to{
+		background-image: url(../images/iconosybotonf1/PNG_Semaforo1_ON.png);
+	}
+}
+
+
+@keyframes semaforo2{
+
+	to{
+		background-image: url(../images/iconosybotonf1/PNG_Semaforo2_ON.png);
+	}
+}
+
 #boton_to_vel{
-	margin: 15px auto;
+	margin: 5px auto;
 	width: 132px;
 	height: 34px;
 	background-image: url(../images/Boton.png);
@@ -393,7 +467,7 @@
 	cursor: pointer;
 	background-repeat: no-repeat;
 	text-align: center;
-	
+	font-size: 14px;
 	
 }
 
@@ -425,7 +499,7 @@
 
 #cont_to_vel{
 	position: absolute;
-	top: 3%;
+	bottom: 90px;
 	left: 50%;
 	-webkit-transform: translate(-50%,0);
 	z-index: 100001;
@@ -435,9 +509,14 @@
 #text_to_vel{
 	max-width: 400px;
 	color: white;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0);
 	padding: 10px 5px;
 	text-align: center;
+	font-size: 14px;
+}
+
+#text_to_vel span{
+	font-size: 12px;
 }
 
 
@@ -456,17 +535,17 @@
 	text-align: center;
 	margin-top: 30px;
 	position: absolute;
-	top: 3%;
 	left: 50%;
 	-webkit-transform: translate(-50%,0);
 	z-index: 100001;
 	display: none;
 	font-size: 10px;
+	bottom: -70px;
 }
 
 #indepth_auto{
 	width: 100%;
-	height: 150px;
+	height: 90px;
 	position: absolute;
 	bottom: 0;
 	z-index: 1000;
@@ -475,11 +554,11 @@
 
 #indepth_pov{
 	width: 450px;
-	height: 150px;
+	height: 90px;
 	background-image: url(../images/POV.png);
 	background-position: center bottom;
 	background-repeat: no-repeat;
-	-webkit-transform: translate(0px,150px);
+	-webkit-transform: translate(0px,90px);
 	background-size: contain;
 	margin: auto;	
 }
@@ -496,17 +575,17 @@
 }
 
 #indepth_velocimetro{
-	width: 250px;
-	height:240px;
-	background-image: url(../images/Velocimetro_grande.png);
+	width: 200px;
+	height:200px;
+	background-image: url(../images/velocimetro/velocimetro_00076.png);
 	background-position: center center;
 	background-position: center center;
 	background-repeat: no-repeat;
-	background-size: contain;
+	background-size: 100%;
 	position: absolute;
 	z-index: 10001;
-	left: 2%;
-	bottom: 150px;
+	right: 15%;
+	bottom: 50px;
 	display: none;
 }
 
@@ -543,6 +622,7 @@
 	max-width: 1024px;
 	-webkit-transform: translate(-50%,-50%);
 	width: calc(100% - 180px);
+	margin-top: -30px;
 	
 }
 
@@ -571,13 +651,13 @@
 	text-align: center;
 }
 
-#res_distancia, #res_tiempo, #res_tiempo_normal{
+#res_distancia, #res_tiempo, #res_velocidad{
 	width: 160px;
 	font-size: 16px;
 	color: #b31432;
 	display: inline-block;
 	text-transform: uppercase;
-	padding: 45px 0;
+	padding: 25px 0;
 	position: relative;
 }
 
@@ -595,12 +675,82 @@
 	padding-right: 45px;
 }
 
-#res_distancia span, #res_tiempo span, #res_tiempo_normal span{
+#res_distancia div, #res_tiempo div, #res_velocidad div{
 	color: white;
 	font-size: 22px;
 	margin-top: 5px;
 	line-height: 40px;
+	padding-top: 50px;
+	background-repeat: no-repeat;
+	background-position: center bottom 50px;
+	
 }
+
+
+#res_velocidad div{
+	background-image: url(../images/iconosybotonf1/Velocidad.png);
+	background-size: 46px auto;
+}
+ #res_tiempo div{
+	 background-image: url(../images/iconosybotonf1/Tiempo.png);
+	 background-size: 40px auto;
+ }
+
+#res_distancia div{
+	background-image: url(../images/iconosybotonf1/Distancia.png);
+		background-size: 50px;
+}
+
+#preload{
+	position: absolute;
+	    margin-left: -999999999px;
+    margin-top: -9999999999px;
+}
+
+#res_datos_on{
+	max-width: 500px;
+	width: 96%;
+	margin: auto;
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+#res_tiempo_carro, #res_tiempo_bus, #res_tiempo_bici, #res_tiempo_walk{
+	width: 120px;
+	height: auto;
+	padding-top: 45px;
+	color: white;
+	font-size: 16px;
+	text-align: center;
+	background-repeat: no-repeat;
+	display: inline-block;
+	
+}
+
+#res_tiempo_carro{
+	background-image: url(../images/iconosybotonf1/Carro.png);
+	background-position: center top;
+	background-size: 44px auto;
+}
+
+#res_tiempo_bus{
+	background-image: url(../images/iconosybotonf1/Transporte_publico.png);
+	background-position: center top;
+	background-size: 50px auto;
+}
+
+#res_tiempo_walk{
+	background-image: url(../images/iconosybotonf1/Caminando.png);
+	background-position: center top;
+	background-size: 44px auto;
+}
+
+#res_tiempo_bici{
+	background-position: center top;
+	background-size: 55px auto;
+	background-image: url(../images/iconosybotonf1/Bici.png);
+}
+
 
 @media screen and (max-width: 1100px){
 	#indeptt_map_c{
@@ -620,6 +770,12 @@
 	.indepth_map_text{
 		font-size: 10px;
 	}
+	
+	#indepth_portada_img{
+				background-position:  center top -15px, center top ;
+		background-size: 1200px auto, 600px auto;
+		
+	}
 }
 
 @media screen and (max-width: 800px){
@@ -632,6 +788,12 @@
 	}
 	#indepth_pov{
 		width: 45%;
+	}
+	
+	#indepth_portada_img{
+				background-position:  center top -15px, center top ;
+		background-size: 1200px auto, 1000px auto;
+		
 	}
 }
 
@@ -686,7 +848,7 @@
 	}
 	
 	#indepth_portada_img {
-	    background-size: 1000px auto, 1000px auto;
+	    background-size: 1400px auto, 1000px auto;
 	}
 	
 
@@ -696,14 +858,14 @@
 	}
 }
 
-@media screen and (max-height: 900px){
+@media screen and (min-height: 900px){
 	#indepth_portada_img img{
 		max-width: 450px;
 		width: 100%;
 	}
 	
 	#indepth_portada_img {
-	    background-size: 1000px auto, 1000px auto;
+	    background-size: 1200px auto, 700px auto;
 	}
 	
 
@@ -789,7 +951,7 @@
 		overflow: auto !important;
 	}
 	
-	#res_distancia, #res_tiempo, #res_tiempo_normal{
+	#res_distancia, #res_tiempo, #res_velocidad{
 		width: 60px;
 		font-size: 10px;
 		padding: 10px 0;
@@ -804,7 +966,7 @@
 	#res_distancia, #res_tiempo {
     padding-right: 25px;
 }
-	#res_distancia span, #res_tiempo span, #res_tiempo_normal span{
+	#res_distancia div, #res_tiempo div, #res_velocidad div{
 		line-height: 16px;
 		font-size: 16px;
 	}
