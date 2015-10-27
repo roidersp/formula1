@@ -392,9 +392,10 @@
 	position: absolute;
 	top: 15%;
 	left: 50%;
+	-ms-transform: translate(-50%, 0px);
 	-webkit-transform: translate(-50%, 0px);
 	transform: translate(-50%, 0px);
-	-ms-transform: translate(-50%, 0px);
+	
 	-o-transform: translate(-50%, 0px);
 	-moz-transform: translate(-50%, 0px);
 	height: 70px;
@@ -543,9 +544,10 @@
 	margin-top: 30px;
 	position: absolute;
 	left: 50%;
+	-ms-transform: translate(-50%,0);
 	-webkit-transform: translate(-50%,0);
 	transform: translate(-50%,0);
-	-ms-transform: translate(-50%,0);
+	
 	-o-transform: translate(-50%,0);
 	-moz-transform: translate(-50%,0);
 	z-index: 100001;
@@ -569,11 +571,12 @@
 	background-image: url(../images/POV.png);
 	background-position: center bottom;
 	background-repeat: no-repeat;
+	-ms-transform: translate(0px,90px);
 	-webkit-transform: translate(0px,90px);
 	transform: translate(0px,90px);
 	-o-transform: translate(0px,90px);
 	-moz-transform: translate(0px,90px);
-	-ms-transform: translate(0px,90px);
+	
 	background-size: contain;
 	margin: auto;	
 }
@@ -635,9 +638,10 @@
 	z-index: 100001;
 	display: none;
 	max-width: 1024px;
+	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
-	-ms-transform: translate(-50%,-50%);
+	
 	
 	width: calc(100% - 180px);
 	margin-top: -30px;
