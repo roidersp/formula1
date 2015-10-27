@@ -92,20 +92,20 @@ $(document).on("click","#indepth_ver",function(){
 				if(direcion){
 					num_vel++;
 					
-					if(num_vel>=99){
+					if(num_vel>=124){
 						direcion=false;
 					}
 						
 				}else{
 					num_vel--;
 					
-					if(num_vel<=76){
+					if(num_vel<=73){
 						direcion=true;
 					}
 					
 				}
 				
-				$("#indepth_velocimetro").css("background-image",'url('+urlIndepth+'images/velocimetro/velocimetro_000'+num_vel+'.png)')
+				$("#indepth_velocimetro").css("background-image",'url('+urlIndepth+'images/velocimetro/velocimentro_000'+num_vel+'.png)')
 								
 			}, 40);
 			
