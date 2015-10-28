@@ -47,8 +47,8 @@
 }
 
 #indepth_fox_branding{
-	width: 200px;
-	height: 50px;
+	width: 250px;
+	height: 70px;
 	position: absolute;
 	bottom: 15px;
 	right: 10px;
@@ -233,6 +233,8 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
+	background-size: cover;
+	background-position: center bottom;
 }
 
 #indepth_street_view{
@@ -672,6 +674,7 @@
 	opacity: 1;
 	background-image:  url(../images/IMG_NoMaps.png);
 	background-position: center bottom;
+	background-size: cover;
 }
 
 #indepth_noST_msg{
@@ -1146,6 +1149,18 @@
 
 #indepth_direction_cont{
 	background-image: url(../images/Fondo_portada.png);
+}
+
+#cont_to_vel{
+	bottom: 50px;
+}
+
+#indepth_noST_msg{
+	max-width: 200px;
+	margin: auto;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 12px;
 }
 
 	
