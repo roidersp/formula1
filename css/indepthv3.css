@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Aldrich);
 
-
+.responsive #mobile-horizontal-menu{
+	display: none !important;
+}
 .gm-style > div:nth-child(9), #nav-bar-stats{
  display:none;
 }
