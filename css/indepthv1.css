@@ -612,7 +612,7 @@
 
 #indepth_auto{
 	width: 100%;
-	height: 90px;
+	height: 120px;
 	position: absolute;
 	bottom: 0;
 	z-index: 1000;
@@ -621,7 +621,7 @@
 
 #indepth_pov{
 	width: 450px;
-	height: 90px;
+	height: 120px;
 	background-image: url(../images/POV.png);
 	background-position: center bottom;
 	background-repeat: no-repeat;
@@ -631,7 +631,7 @@
 	-o-transform: translate(0px,90px);
 	-moz-transform: translate(0px,90px);
 	
-	background-size: contain;
+	background-size: 100% auto;
 	margin: auto;	
 }
 
@@ -649,7 +649,7 @@
 #indepth_velocimetro{
 	width: 200px;
 	height:200px;
-	background-image: url(../images/velocimetro/velocimentro__00073.png);
+	background-image: url(url(../images/velocimetro/velocimentro2_0000.png));
 	background-position: center center;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -659,6 +659,26 @@
 	right: 15%;
 	bottom: 50px;
 	display: none;
+}
+
+#indepth_noST{
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+	opacity: 1;
+	background-image:  url(../images/IMG_NoMaps.png);
+	background-position: center bottom;
+}
+
+#indepth_noST_msg{
+	max-width: 500px;
+	margin: auto;
+	text-align: center;
+	margin-top: 20px;
 }
 
 #indepth_video_a{
@@ -681,7 +701,7 @@
 	left: 0;
 	display: none;
 	opacity: 1;
-	background-image: url(../images/VID_Loop-FINAL-MOVIL.gif);
+	
 }
 
 #indepth_video_a video{
@@ -813,7 +833,7 @@
 	text-align: center;
 	background-repeat: no-repeat;
 	display: inline-block;
-	
+	text-transform: uppercase;
 }
 
 #res_tiempo_carro{
@@ -947,7 +967,7 @@
 	}
 }
 
-@media screen and (min-height: 900px){
+@media screen and (max-height: 700px){
 	#indepth_portada_img img{
 		max-width: 450px;
 		width: 100%;
@@ -1123,6 +1143,11 @@
 .gif{
 	display: none;
 }
+
+#indepth_direction_cont{
+	background-image: url(../images/Fondo_portada.png);
+}
+
 	
 }
 

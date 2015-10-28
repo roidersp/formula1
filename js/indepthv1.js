@@ -5,12 +5,22 @@ var start_location;
 var searchBox;
 var segundos, bici_segundos, bici_segundos;
 var myVideo = document.getElementById("video"); 
-var vel_t= 300;
+var vel_t= 220;
+var metros;
+
+var tiempo_tw;
+
+var d = new Date();
+
+src= urlIndepth+$("#gif_v").attr("src")+"?v=" +  d.getTime();
+$("#gif_v").attr("src",src);
+
+$("#indepoth_gif_video").css("background-image","url("+src+")");
 
 $(document).on("click", "#indepth_share_twiiter", function(){
-	var text = encodeURIComponent("Hice "+segundos+" para llegar al Autódromo Hermanos Rodríguez en un Fórmula ¿Y tú?");
+	var text = encodeURIComponent("Recorrí "+Math.round10((metros/1000),-1)+" km en "+tiempo_tw+" para llegar al Autódromo Hermanos Rodríguez en un Fórmula 1 ¿Y tú?");
 	
-	var url = encodeURIComponent("http://juanfutbol.com/indepth/");
+	var url = encodeURIComponent("http://juanfutbol.com/indepth/formula-1");
 	window.open("https://twitter.com/share?via=juanfutbol&text="+text+"&url="+url,"","width=500, height=300");
 	}
 );
@@ -46,26 +56,52 @@ $(document).on("click","#indepth_ver",function(){
 	if(place != undefined){
 		lat = place.geometry.location.lat();
 	 	 lng = place.geometry.location.lng();
+	 	 
+
+	 		 	
+	 	 var sv = new google.maps.StreetViewService();
 	 	
-	 	 var panorama = new google.maps.StreetViewPanorama(
-		      document.getElementById('indepth_street_view'), {
-		        position: {lat: lat, lng: lng},
-		        addressControlOptions: {
-		          position: google.maps.ControlPosition.BOTTOM_CENTER
-		        },
-		        linksControl: false,
-		        panControl: false,
-		        enableCloseButton: false,
-		        pov: {
-		          heading: -80,
-		          pitch: 0
-		        },
-		        zoom:0,
-				linksControl: false,
-		        panControl: false,
-		        enableCloseButton: false,
-		        disableDefaultUI: true
-		  });
+		 	 var panorama = new google.maps.StreetViewPanorama(
+			      document.getElementById('indepth_street_view'), {
+			        position: {lat: lat, lng: lng},
+			        addressControlOptions: {
+			          position: google.maps.ControlPosition.BOTTOM_CENTER
+			        },
+			        linksControl: false,
+			        panControl: false,
+			        enableCloseButton: false,
+			        pov: {
+			          heading: -80,
+			          pitch: 0
+			        },
+			        zoom:0,
+					linksControl: false,
+			        panControl: false,
+			        enableCloseButton: false,
+			        disableDefaultUI: true
+			  });
+			  
+			  
+
+			sv.getPanoramaByLocation({lat: lat, lng: lng}, 50, function(data, status) {
+			    if (status == 'OK') {
+			    }
+			    else {
+				     $("#indepth_noST").show();
+				}
+			});
+			  
+			  
+		  
+		  
+		  
+		  
+		  
+
+		  
+		  console.log(panorama);
+		  console.log("panorama");
+		  console.log(panorama.Projection);
 		  
 		 $(document).on("click","#boton_to_vel",function(){
 		
@@ -80,10 +116,7 @@ $(document).on("click","#indepth_ver",function(){
 		
 			$("#cont_to_vel").hide();
 			
-			
-			
-			
-			num_vel = 76;
+			num_vel = 0;
 			direcion = true;
 			
 			valocimetro_interval = setInterval(function(){ 
@@ -91,20 +124,19 @@ $(document).on("click","#indepth_ver",function(){
 				if(direcion){
 					num_vel++;
 					
-					if(num_vel>=124){
+					if(num_vel>=65){
 						direcion=false;
 					}
-						
 				}else{
 					num_vel--;
 					
-					if(num_vel<=73){
+					if(num_vel<=0){
 						direcion=true;
 					}
 					
 				}
 				
-				$("#indepth_velocimetro").css("background-image",'url('+urlIndepth+'images/velocimetro/velocimentro_000'+num_vel+'.png)')
+				$("#indepth_velocimetro").css("background-image",'url('+urlIndepth+'images/velocimetro/velocimentro2_000'+num_vel+'.png)')
 								
 			}, 40);
 			
@@ -120,10 +152,11 @@ $(document).on("click","#indepth_ver",function(){
 			  function() 
 			  {
 				
-			    $("#indepth_resultados").fadeIn();
+			   
 			    $("#boton_de_nuevo").show();
 			    $("#indepth_velocimetro").fadeOut();
 			    clearInterval(valocimetro_interval);
+			    $("#indepth_noST").hide();
 			     $("#indepth_video_a").animate({
 				    opacity:0
 			    },500);
@@ -132,17 +165,19 @@ $(document).on("click","#indepth_ver",function(){
 			  setTimeout(
 			  function() 
 			  {
+				   $("#indepth_resultados").fadeIn();
 				 $("#indepth_video_a").hide();
 				 myVideo.pause();
 			    
-			  }, 5000);
+			  }, 5500);
 			}else{
 				$("#indepoth_gif_video").fadeIn("fast");
-				setTimeout(
+			setTimeout(
 			  function() 
 			  {
 				
-			    $("#indepth_resultados").fadeIn();
+			    
+			    $("#indepth_noST").hide();
 			    $("#boton_de_nuevo").show();
 			    $("#indepth_velocimetro").fadeOut();
 			    clearInterval(valocimetro_interval);
@@ -150,10 +185,18 @@ $(document).on("click","#indepth_ver",function(){
 			     
 			  }, 4300);
 			  
+			  setTimeout(
+			  function() 
+			  {
+				  $("#indepth_direction_cont").css("background-image","url("+urlIndepth+"images/IMG_MovilFinal.png)");
+				 $("#indepth_resultados").fadeIn("slow");
+			    $("#indepth_street_view").fadeOut("fast");
+			    
+			  },6000)
+			  
 			  
 			}
 
-			
 			panorama.setPosition({lat: 19.40319, lng: -99.09094});
 			panorama.setZoom(0);
 			panorama.setPov({
@@ -163,7 +206,6 @@ $(document).on("click","#indepth_ver",function(){
 	        
 	        }, 2200);
 		
-			
 		});
 		
 		$(document).on("click","#boton_de_nuevo",function(){
@@ -186,9 +228,7 @@ $(document).on("click","#indepth_ver",function(){
 
    var map = new google.maps.Map(document.getElementById("map"), myOptions);
    directionsDisplay.setMap(map);
-   
-  
-   
+      
    var request = {
        origin: $("#pac-input").val(), 
        destination: new google.maps.LatLng(19.40319,-99.09094),
@@ -204,32 +244,35 @@ $(document).on("click","#indepth_ver",function(){
 	  		
 	  		velocidad=(vel_t*1000)/3600;
 	  		
-	  		
 	  		$(".indepth_map_inicio").html($("#pac-input").val());
 	  		$("#indepth_kilometros").html(Math.round10(metros/1000, -2) + " km");
 	  		$("#res_distancia div").html(Math.round10(metros/1000, -2) + " km");
-	  		$("#res_tiempo div").html((Math.round10(metros/velocidad)) + " segs");
+	  		$("#res_tiempo div").html((Math.round10(metros/velocidad)) + " hrs");
 	  		
 	  		s3= metros/velocidad;
 	  		
 	  		if((s3/60)>60){
-		  		$("#res_tiempo div").html(Math.round10((s3/3660),-1) + " HRS");
+		  		tiempo_tw = Math.round10((s3/3660),-1)+ " hrs";
+		  		$("#res_tiempo div").html(tiempo_tw );
+		  		
 	  		}else{
 	  		if(segundos>60){
-		  		$("#res_tiempo div").html(Math.round10((s3/60),-1) + " MINS");
+		  		tiempo_tw = Math.round10((s3/60),-1)  + " mins";
+		  		$("#res_tiempo div").html(tiempo_tw);
 	  		}else{
-		  		$("#res_tiempo div").html(s3 + " SEGS");
+		  		tiempo_tw =s3+ " hrs";
+		  		$("#res_tiempo div").html(s3 );
 	  		}
 	  		}
 	  		
 	  		
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_carro").html(Math.round10((segundos/3660),-1) + " HRS");
+		  		$("#res_tiempo_carro").html(Math.round10((segundos/3660),-1) + " hrs");
 	  		}else{
 	  		if(segundos>60){
-		  		$("#res_tiempo_carro").html(Math.round10((segundos/60),-1) + " MINS");
+		  		$("#res_tiempo_carro").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_carro").html(segundos + " SEGS");
+		  		$("#res_tiempo_carro").html(segundos + " hrs");
 	  		}
 	  		}
            start_location = response.routes[0].legs[0];
@@ -255,13 +298,13 @@ $(document).on("click","#indepth_ver",function(){
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_bus").html(Math.round10((segundos/3660),-1) + " HRS");
+		  		$("#res_tiempo_bus").html(Math.round10((segundos/3660),-1) + " hrs");
 	  		}else{
 	  		
 	  		if(segundos>60){
-		  		$("#res_tiempo_bus").html(Math.round10((segundos/60),-1) + " MINS");
+		  		$("#res_tiempo_bus").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_bus").html(segundos + " SEGS");
+		  		$("#res_tiempo_bus").html(segundos + " hrs");
 	  		}
 	  		}
 	  		
@@ -284,12 +327,12 @@ $(document).on("click","#indepth_ver",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_walk").html(Math.round10((segundos/3660),-1) + " HRS");
+		  		$("#res_tiempo_walk").html(Math.round10((segundos/3660),-1) + " hrs");
 	  		}else{
 	  		if(segundos>60){
-		  		$("#res_tiempo_walk").html(Math.round10((segundos/60),-1) + " MINS");
+		  		$("#res_tiempo_walk").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_walk").html(segundos + " SEGS");
+		  		$("#res_tiempo_walk").html(segundos + " hrs");
 	  		}
 	  		}
 	  		
@@ -311,12 +354,12 @@ $(document).on("click","#indepth_ver",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 	  	segundos = response.routes[0].legs[0].duration.value;
 	  	if((segundos/60)>60){
-		  		$("#res_tiempo_bici").html(Math.round10((segundos/3660),-1) + " MINS");
+		  		$("#res_tiempo_bici").html(Math.round10((segundos/3660),-1) + " mins");
 	  		}else{
 		  	if(segundos>60){
-		  		$("#res_tiempo_bici").html(Math.round10((segundos/60),-1) + " MINS");
+		  		$("#res_tiempo_bici").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_bici").html(segundos + " SEGS");
+		  		$("#res_tiempo_bici").html(segundos + " hrs");
 	  		}
 	  		}
       }else{
