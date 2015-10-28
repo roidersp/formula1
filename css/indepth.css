@@ -1119,6 +1119,10 @@
 	position: absolute;
 	z-index: 100000;
 }
+
+.gif{
+	display: none;
+}
 	
 }
 
