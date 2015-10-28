@@ -69,7 +69,7 @@ $(document).on("click","#indepth_ver",function(){
 		  
 		 $(document).on("click","#boton_to_vel",function(){
 		
-		
+		 	$("#cont_to_vel").hide();
 		 	$("#indepth_semaforo").fadeIn("fast");
 		 	
 		 	setTimeout(
@@ -80,9 +80,8 @@ $(document).on("click","#indepth_ver",function(){
 		
 			$("#cont_to_vel").hide();
 			
-			$("#indepth_video_a").fadeIn("fast");
-			myVideo.volume = 0.5;
-			myVideo.play();
+			
+			
 			
 			num_vel = 76;
 			direcion = true;
@@ -110,17 +109,51 @@ $(document).on("click","#indepth_ver",function(){
 			}, 40);
 			
 			$("#indepth_velocimetro").fadeIn();
-						
-			setTimeout(
+			
+			if($(window).width()>600){
+				
+				myVideo.volume = 0.5;
+				myVideo.play();
+				
+				$("#indepth_video_a").fadeIn("fast");
+				setTimeout(
 			  function() 
 			  {
-				 myVideo.pause();
-			    $("#indepth_video_a").fadeOut("500");
-			    $("#indepth_resultados").show();
+				
+			    $("#indepth_resultados").fadeIn();
 			    $("#boton_de_nuevo").show();
 			    $("#indepth_velocimetro").fadeOut();
 			    clearInterval(valocimetro_interval);
-			  }, 4100);
+			     $("#indepth_video_a").animate({
+				    opacity:0
+			    },500);
+			  }, 4300);
+			  
+			  setTimeout(
+			  function() 
+			  {
+				 $("#indepth_video_a").hide();
+				 myVideo.pause();
+			    
+			  }, 5000);
+			}else{
+				$("#indepoth_gif_video").fadeIn("fast");
+				setTimeout(
+			  function() 
+			  {
+				
+			    $("#indepth_resultados").fadeIn();
+			    $("#boton_de_nuevo").show();
+			    $("#indepth_velocimetro").fadeOut();
+			    clearInterval(valocimetro_interval);
+			    $("#indepoth_gif_video").fadeOut("fast");
+			     
+			  }, 4300);
+			  
+			  
+			}
+						
+			
 			
 			panorama.setPosition({lat: 19.40319, lng: -99.09094});
 			panorama.setZoom(0);
