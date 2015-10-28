@@ -399,6 +399,7 @@
 	font-family: 'Aldrich', sans-serif;
 	font-size: 14px;
 	text-transform: uppercase;
+	text-align: center;
 }
 
 .indepth_map_flecha{
@@ -678,7 +679,7 @@
 }
 
 #indepth_noST_msg{
-	max-width: 500px;
+	max-width: 400px;
 	margin: auto;
 	text-align: center;
 	margin-top: 20px;
@@ -922,7 +923,7 @@
 	.indepth_map_text{
 		float: none;
 		line-height: 10px;
-		display: table;
+		padding: 7px 0;
 	}
 	
 	.indepth_map_flecha{
@@ -1163,6 +1164,18 @@
 	font-size: 12px;
 }
 
+#res_tiempo_carro, #res_tiempo_bus, #res_tiempo_bici, #res_tiempo_walk{
+	width: 90px;
+	font-size: 12px;
+}
+#res_distancia div, #res_tiempo div, #res_velocidad div{
+	background-position: center bottom 25px;
+	font-size: 11px;
+}
+	
+.indepth_map_flecha{
+	width: 100%;
+}
 	
 }
 
