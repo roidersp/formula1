@@ -152,8 +152,7 @@ $(document).on("click","#indepth_ver",function(){
 			  
 			  
 			}
-						
-			
+
 			
 			panorama.setPosition({lat: 19.40319, lng: -99.09094});
 			panorama.setZoom(0);
@@ -205,7 +204,6 @@ $(document).on("click","#indepth_ver",function(){
 	  		
 	  		velocidad=(vel_t*1000)/3600;
 	  		
-	  		console.log(metros);
 	  		
 	  		$(".indepth_map_inicio").html($("#pac-input").val());
 	  		$("#indepth_kilometros").html(Math.round10(metros/1000, -2) + " km");
@@ -214,10 +212,10 @@ $(document).on("click","#indepth_ver",function(){
 	  		
 	  		s3= metros/velocidad;
 	  		
-	  		if((s3/60)>1000){
+	  		if((s3/60)>60){
 		  		$("#res_tiempo div").html(Math.round10((s3/3660),-1) + " HRS");
 	  		}else{
-	  		if(segundos>1000){
+	  		if(segundos>60){
 		  		$("#res_tiempo div").html(Math.round10((s3/60),-1) + " MINS");
 	  		}else{
 		  		$("#res_tiempo div").html(s3 + " SEGS");
@@ -225,10 +223,10 @@ $(document).on("click","#indepth_ver",function(){
 	  		}
 	  		
 	  		
-	  		if((segundos/60)>1000){
+	  		if((segundos/60)>60){
 		  		$("#res_tiempo_carro").html(Math.round10((segundos/3660),-1) + " HRS");
 	  		}else{
-	  		if(segundos>1000){
+	  		if(segundos>60){
 		  		$("#res_tiempo_carro").html(Math.round10((segundos/60),-1) + " MINS");
 	  		}else{
 		  		$("#res_tiempo_carro").html(segundos + " SEGS");
@@ -256,11 +254,11 @@ $(document).on("click","#indepth_ver",function(){
      if (status == google.maps.DirectionsStatus.OK) {
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		
-	  		if((segundos/60)>1000){
+	  		if((segundos/60)>60){
 		  		$("#res_tiempo_bus").html(Math.round10((segundos/3660),-1) + " HRS");
 	  		}else{
 	  		
-	  		if(segundos>1000){
+	  		if(segundos>60){
 		  		$("#res_tiempo_bus").html(Math.round10((segundos/60),-1) + " MINS");
 	  		}else{
 		  		$("#res_tiempo_bus").html(segundos + " SEGS");
@@ -285,10 +283,10 @@ $(document).on("click","#indepth_ver",function(){
 	   
       if (status == google.maps.DirectionsStatus.OK) {
 	  		segundos = response.routes[0].legs[0].duration.value;
-	  		if((segundos/60)>1000){
+	  		if((segundos/60)>60){
 		  		$("#res_tiempo_walk").html(Math.round10((segundos/3660),-1) + " HRS");
 	  		}else{
-	  		if(segundos>1000){
+	  		if(segundos>60){
 		  		$("#res_tiempo_walk").html(Math.round10((segundos/60),-1) + " MINS");
 	  		}else{
 		  		$("#res_tiempo_walk").html(segundos + " SEGS");
@@ -312,10 +310,10 @@ $(document).on("click","#indepth_ver",function(){
 	   
       if (status == google.maps.DirectionsStatus.OK) {
 	  	segundos = response.routes[0].legs[0].duration.value;
-	  	if((segundos/60)>1000){
+	  	if((segundos/60)>60){
 		  		$("#res_tiempo_bici").html(Math.round10((segundos/3660),-1) + " MINS");
 	  		}else{
-		  	if(segundos>1000){
+		  	if(segundos>60){
 		  		$("#res_tiempo_bici").html(Math.round10((segundos/60),-1) + " MINS");
 	  		}else{
 		  		$("#res_tiempo_bici").html(segundos + " SEGS");
