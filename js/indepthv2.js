@@ -256,13 +256,13 @@ $(document).on("click","#indepth_ver",function(){
 		  		$("#res_tiempo div").html(tiempo_tw );
 		  		
 	  		}else{
-	  		if(segundos>60){
-		  		tiempo_tw = Math.round10((s3/60),-1)  + " mins";
-		  		$("#res_tiempo div").html(tiempo_tw);
-	  		}else{
-		  		tiempo_tw =s3+ " hrs";
-		  		$("#res_tiempo div").html(s3 );
-	  		}
+                if(segundos>60){
+                    tiempo_tw = Math.round10((s3/60),-1)  + " mins";
+                    $("#res_tiempo div").html(tiempo_tw);
+                }else{
+                    tiempo_tw =s3+ " hrs";
+                    $("#res_tiempo div").html(s3 );
+                }
 	  		}
 	  		
 	  		
@@ -327,7 +327,11 @@ $(document).on("click","#indepth_ver",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_walk").html(Math.round10((segundos/3660),-1) + " hrs");
+                var tiempo_walk = Math.round10((segundos/3660),-1);
+                if(tiempo_walk > 1)
+		  		    $("#res_tiempo_walk").html(tiempo_walk + " hrs");
+                else
+                    $("#res_tiempo_walk").html(tiempo_walk + " hr");
 	  		}else{
 	  		if(segundos>60){
 		  		$("#res_tiempo_walk").html(Math.round10((segundos/60),-1) + " mins");
