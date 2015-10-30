@@ -12,7 +12,7 @@ var tiempo_tw;
 
 var d = new Date();
 
-src= urlIndepth+$("#gif_v").attr("src")+"?v=" +  d.getTime();
+src= $("#gif_v").attr("src")+"?v=" +  d.getTime();
 $("#gif_v").attr("src",src);
 
 $("#indepoth_gif_video").css("background-image","url("+src+")");
@@ -55,9 +55,7 @@ $(document).on("click","#indepth_ver",function(){
 		
 	if(place != undefined){
 		lat = place.geometry.location.lat();
-	 	 lng = place.geometry.location.lng();
-	 	 
-
+	 	lng = place.geometry.location.lng();
 	 		 	
 	 	 var sv = new google.maps.StreetViewService();
 	 	
@@ -81,8 +79,6 @@ $(document).on("click","#indepth_ver",function(){
 			        disableDefaultUI: true
 			  });
 			  
-			  
-
 			sv.getPanoramaByLocation({lat: lat, lng: lng}, 50, function(data, status) {
 			    if (status == 'OK') {
 			    }
@@ -90,18 +86,6 @@ $(document).on("click","#indepth_ver",function(){
 				     $("#indepth_noST").show();
 				}
 			});
-			  
-			  
-		  
-		  
-		  
-		  
-		  
-
-		  
-		  console.log(panorama);
-		  console.log("panorama");
-		  console.log(panorama.Projection);
 		  
 		 $(document).on("click","#boton_to_vel",function(){
 		
@@ -113,7 +97,6 @@ $(document).on("click","#indepth_ver",function(){
 			  {
 				$("#indepth_semaforo").fadeOut("fast");
 		 	
-		
 			$("#cont_to_vel").hide();
 			
 			num_vel = 0;
@@ -133,7 +116,6 @@ $(document).on("click","#indepth_ver",function(){
 					if(num_vel<=0){
 						direcion=true;
 					}
-					
 				}
 				
 				$("#indepth_velocimetro").css("background-image",'url('+urlIndepth+'images/velocimetro/velocimentro2_000'+num_vel+'.png)')
@@ -150,9 +132,7 @@ $(document).on("click","#indepth_ver",function(){
 				$("#indepth_video_a").fadeIn("fast");
 				setTimeout(
 			  function() 
-			  {
-				
-			   
+			  {			   
 			    $("#boton_de_nuevo").show();
 			    $("#indepth_velocimetro").fadeOut();
 			    clearInterval(valocimetro_interval);
@@ -175,8 +155,6 @@ $(document).on("click","#indepth_ver",function(){
 			setTimeout(
 			  function() 
 			  {
-				
-			    
 			    $("#indepth_noST").hide();
 			    $("#boton_de_nuevo").show();
 			    $("#indepth_velocimetro").fadeOut();
@@ -193,8 +171,6 @@ $(document).on("click","#indepth_ver",function(){
 			    $("#indepth_street_view").fadeOut("fast");
 			    
 			  },6000)
-			  
-			  
 			}
 
 			panorama.setPosition({lat: 19.40319, lng: -99.09094});
@@ -205,13 +181,11 @@ $(document).on("click","#indepth_ver",function(){
 	        });
 	        
 	        }, 2200);
-		
 		});
 		
 		$(document).on("click","#boton_de_nuevo",function(){
-		avascript:location.reload();
-	});
-
+		javascript:location.reload();
+		});
 	
 	
    $("#indepth_direccion").fadeIn();
@@ -252,7 +226,13 @@ $(document).on("click","#indepth_ver",function(){
 	  		s3= metros/velocidad;
 	  		
 	  		if((s3/60)>60){
-		  		tiempo_tw = Math.round10((s3/3660),-1)+ " hrs";
+		  		tiempo_tw = Math.round10((s3/3600),-1);
+		  		if(tiempo_tw>1){
+			  		tiempo_tw = tiempo_tw.concat(" hrs");
+		  		}else{
+			  		tiempo_tw = tiempo_tw.concat(" hr");
+		  		}
+		  		
 		  		$("#res_tiempo div").html(tiempo_tw );
 		  		
 	  		}else{
@@ -267,12 +247,12 @@ $(document).on("click","#indepth_ver",function(){
 	  		
 	  		
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_carro").html(Math.round10((segundos/3660),-1) + " hrs");
+		  		$("#res_tiempo_carro").html(Math.round10((segundos/3600),-1) + " hrs");
 	  		}else{
 	  		if(segundos>60){
 		  		$("#res_tiempo_carro").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_carro").html(segundos + " hrs");
+		  		$("#res_tiempo_carro").html(segundos + " seg");
 	  		}
 	  		}
            start_location = response.routes[0].legs[0];
@@ -298,13 +278,17 @@ $(document).on("click","#indepth_ver",function(){
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		
 	  		if((segundos/60)>60){
-		  		$("#res_tiempo_bus").html(Math.round10((segundos/3660),-1) + " hrs");
+		  		 var tiempo_walk = Math.round10((segundos/3660),-1);
+                if(tiempo_walk > 1)
+		  		    $("#res_tiempo_bus").html(tiempo_walk + " hrs");
+                else
+                    $("#res_tiempo_bus").html(tiempo_walk + " hr");
 	  		}else{
 	  		
 	  		if(segundos>60){
 		  		$("#res_tiempo_bus").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_bus").html(segundos + " hrs");
+		  		$("#res_tiempo_bus").html(segundos + " seg");
 	  		}
 	  		}
 	  		
@@ -313,9 +297,7 @@ $(document).on("click","#indepth_ver",function(){
 	      $("#res_tiempo_bus").hide();
       }
    });
-   
-
-   
+      
    var request = {
        origin: $("#pac-input").val(), 
        destination: new google.maps.LatLng(19.40319,-99.09094),
@@ -327,7 +309,7 @@ $(document).on("click","#indepth_ver",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 	  		segundos = response.routes[0].legs[0].duration.value;
 	  		if((segundos/60)>60){
-                var tiempo_walk = Math.round10((segundos/3660),-1);
+                var tiempo_walk = Math.round10((segundos/3060),-1);
                 if(tiempo_walk > 1)
 		  		    $("#res_tiempo_walk").html(tiempo_walk + " hrs");
                 else
@@ -336,7 +318,7 @@ $(document).on("click","#indepth_ver",function(){
 	  		if(segundos>60){
 		  		$("#res_tiempo_walk").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_walk").html(segundos + " hrs");
+		  		$("#res_tiempo_walk").html(segundos + " seg");
 	  		}
 	  		}
 	  		
@@ -358,12 +340,16 @@ $(document).on("click","#indepth_ver",function(){
       if (status == google.maps.DirectionsStatus.OK) {
 	  	segundos = response.routes[0].legs[0].duration.value;
 	  	if((segundos/60)>60){
-		  		$("#res_tiempo_bici").html(Math.round10((segundos/3660),-1) + " mins");
+		  		 var tiempo_walk = Math.round10((segundos/3600),-1);
+                if(tiempo_walk > 1)
+		  		    $("#res_tiempo_bici").html(tiempo_walk + " hrs");
+                else
+                    $("#res_tiempo_bici").html(tiempo_walk + " hr");
 	  		}else{
 		  	if(segundos>60){
 		  		$("#res_tiempo_bici").html(Math.round10((segundos/60),-1) + " mins");
 	  		}else{
-		  		$("#res_tiempo_bici").html(segundos + " hrs");
+		  		$("#res_tiempo_bici").html(segundos + " seg");
 	  		}
 	  		}
       }else{
@@ -401,8 +387,6 @@ $(window).on("resize", function(){
 	height : ventana_alto-60 + "px"
 });
 });
-
-
 
 
 function bgadj(){
@@ -445,15 +429,7 @@ function bgadj(){
     
     // Closure
 (function() {
-  /**
-   * Decimal adjustment of a number.
-   *
-   * @param {String}  type  The type of adjustment.
-   * @param {Number}  value The number.
-   * @param {Integer} exp   The exponent (the 10 logarithm of the adjustment base).
-   * @returns {Number} The adjusted value.
-   */
-  function decimalAdjust(type, value, exp) {
+   function decimalAdjust(type, value, exp) {
     // If the exp is undefined or zero...
     if (typeof exp === 'undefined' || +exp === 0) {
       return Math[type](value);

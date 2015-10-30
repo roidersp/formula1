@@ -999,8 +999,10 @@
 	}
 	
 	#indepth_portada_img {
-	    background-size: 800px auto, 600px auto;
-	    padding-top: 10px;
+		background-image:url(../images/Polvo.png), url(../images/IMG_FormulaJuanMOV.png);
+	    background-size: 800px auto, 80% auto;
+	    padding-top: 70px;
+	     background-position: center top 30px, center top;
 	}
 	
 	.indepth_cover_descripcion{
@@ -1014,7 +1016,6 @@
 	
 	#indeptt_map_c{
 		width: 90%;
-		
 	}
 	
 	#indepth_kilometros{
@@ -1037,7 +1038,6 @@
 	#indepth_pov{
 		width: 70%;
 		height: 50px;
-		
 	}
 	
 	#indepth_auto{
@@ -1050,7 +1050,6 @@
 	    -moz-transform: translateY(50%);
 	    -webkit-transform: translateY(50%);
 	    -o-transform: translateY(50%);
-	   
 	}
 	
 	#indepth_resultados{
@@ -1079,8 +1078,8 @@
 	}
 	
 	#res_distancia, #res_tiempo {
-    padding-right: 25px;
-}
+	    padding-right: 25px;
+	}
 	#res_distancia div, #res_tiempo div, #res_velocidad div{
 		line-height: 16px;
 		font-size: 16px;
@@ -1205,43 +1204,19 @@
 	background-position: center center;
 	background-size: contain;
 }
-#indepth_ver{
-	margin-top: 10px;
-}
+
 
 
 }
 
-@media screen and (max-width: 360px){
-	.indepth_share_item2{
-		width: 110px;
-		height: 30px;
-		line-height: 32px;
-	}
-	
-	#indepth_semaforo{
-	max-width: 176px;
-	width: 90%;
 
-}
-
-.indepth_semaforo_item{
-	width:30px;
-	margin:0 7px;
-	
-   
-}
-}
 
 @media screen and (max-height: 700px){
 	#indepth_portada_img img{
 		max-width: 300px;
 	}
 	
-	#indepth_portada_img {
-	    background-size: 800px auto, 800px auto;
-	    padding-top: 30px;
-	}
+	
 	
 	#map{
 		height: 400px;
@@ -1264,4 +1239,41 @@
 		bottom: 10%;
 	}
 
+}
+
+@media screen and (max-width: 360px){
+	.indepth_share_item2{
+		width: 110px;
+		height: 30px;
+		line-height: 32px;
+	}
+	
+	#indepth_semaforo{
+	max-width: 176px;
+	width: 90%;
+
+}
+
+.indepth_semaforo_item{
+	width:30px;
+	margin:0 7px;
+	
+   
+}
+
+#res_tiempo_carro, #res_tiempo_bus, #res_tiempo_bici, #res_tiempo_walk {
+    width: 80px;
+    font-size: 12px;
+}
+
+#pac-input{
+		width: 240px;
+	}
+	
+	.indepth_calle_text{
+		display: none;
+	}
+	#map {
+	    height: 200px;
+	}
 }
